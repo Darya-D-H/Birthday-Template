@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Happy 21st Birthday, Helya! 💙</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #0a0e17;
+            --navy: #0d1b2a;
+            --mid-blue: #1a3a5c;
+            --accent-blue: #4da8da;
+            --light-blue: #8ecae6;
+            --gold: #e8c56d;
+            --gold-light: #f7e3a8;
+            --text-light: #d6e6f2;
+            --text-muted: #9ab8d4;
+            --candle-glow: #ffb74d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            background: var(--deep-navy);
+        }
+
+        body {
+            font-family: 'Raleway', 'Helvetica Neue', sans-serif;
+            background: var(--deep-navy);
+            color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* ── Korean-inspired decorative pattern (subtle lattice) ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 40px, var(--accent-blue) 40px, var(--accent-blue) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, var(--accent-blue) 40px, var(--accent-blue) 41px),
+                repeating-linear-gradient(45deg, transparent, transparent 56px, var(--light-blue) 56px, var(--light-blue) 57px),
+                repeating-linear-gradient(-45deg, transparent, transparent 56px, var(--light-blue) 56px, var(--light-blue) 57px);
+        }
+
+        /* ── Section containers ── */
+        .section {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            overflow: hidden;
+        }
+
+        /* ── Hero Section ── */
+        #hero-section {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-content .korean-ornament {
+            display: block;
+            width: 60px;
+            height: 2px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            position: relative;
+        }
+        .hero-content .korean-ornament::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+            color: var(--gold);
+            background: var(--deep-navy);
+            padding: 0 8px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 7vw, 3.8rem);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: #ffffff;
+            text-shadow: 0 0 60px rgba(77, 168, 218, 0.5), 0 0 120px rgba(77, 168, 218, 0.25);
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .name {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--light-blue);
+            text-shadow: 0 0 80px rgba(142, 202, 230, 0.6), 0 0 160px rgba(142, 202, 230, 0.3);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: floatDown 2s ease-in-out infinite;
+        }
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .scroll-indicator .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            transform: rotate(45deg);
+            opacity: 0.7;
+        }
+
+        @keyframes floatDown {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* ── Quote Section ── */
+        #quote-section {
+            background: linear-gradient(180deg, var(--deep-navy) 0%, var(--navy) 40%, var(--deep-navy) 100%);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-container {
+            max-width: 650px;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            position: relative;
+            border: 1px solid rgba(77, 168, 218, 0.2);
+            border-radius: 4px;
+            background: rgba(13, 27, 42, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        /* Korean-inspired corner decorations */
+        .quote-container::before,
+        .quote-container::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: var(--accent-blue);
+            border-style: solid;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .quote-container::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+            border-radius: 4px 0 0 0;
+        }
+        .quote-container::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 4px 0;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-style: italic;
+            line-height: 1.8;
+            color: #d6e6f2;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .quote-author {
+            margin-top: 1.8rem;
+            font-size: 0.95rem;
+            color: var(--accent-blue);
+            letter-spacing: 0.08em;
+            font-weight: 500;
+            font-family: 'Raleway', sans-serif;
+        }
+        .quote-author span {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        /* ── Candle Section ── */
+        #candle-section {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--deep-navy) 0%, #0a1019 50%, var(--deep-navy) 100%);
+            gap: 1.5rem;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        #candle-canvas {
+            width: 100%;
+            max-width: 500px;
+            height: 55vh;
+            height: 55dvh;
+            max-height: 550px;
+            border-radius: 12px;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .candle-instruction {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 3;
+            animation: pulse-text 2s ease-in-out infinite;
+        }
+        @keyframes pulse-text {
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .blow-btn {
+            z-index: 3;
+            background: transparent;
+            border: 1.5px solid var(--accent-blue);
+            color: var(--light-blue);
+            padding: 0.8rem 2.2rem;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+        .blow-btn:hover,
+        .blow-btn:active {
+            background: rgba(77, 168, 218, 0.15);
+            border-color: var(--light-blue);
+            box-shadow: 0 0 30px rgba(77, 168, 218, 0.3);
+            color: #fff;
+        }
+        .blow-btn:active {
+            transform: scale(0.95);
+        }
+
+        .candles-count {
+            z-index: 3;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+        }
+        .candles-count strong {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+        }
+
+        /* ── Footer Section ── */
+        #footer-section {
+            min-height: 40vh;
+            min-height: 40dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--deep-navy);
+            position: relative;
+        }
+
+        .footer-content {
+            z-index: 2;
+            padding: 2rem;
+        }
+        .footer-heart {
+            font-size: 2.5rem;
+            animation: heartbeat 1.2s ease-in-out infinite;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.25);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.2);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-style: italic;
+            color: var(--light-blue);
+            letter-spacing: 0.04em;
+        }
+        .footer-name {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .footer-ornament {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1rem auto;
+            opacity: 0.5;
+        }
+
+        /* ── Fade-in animation classes ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-up-delay {
+            transition-delay: 0.25s;
+        }
+        .fade-up-delay-2 {
+            transition-delay: 0.5s;
+        }
+
+        /* ── Responsive tweaks ── */
+        @media (max-width: 480px) {
+            .section {
+                padding: 1.5rem 1rem;
+            }
+            .quote-container {
+                padding: 1.8rem 1.2rem;
+                margin: 0 0.5rem;
+            }
+            .quote-container::before,
+            .quote-container::after {
+                width: 20px;
+                height: 20px;
+            }
+            #candle-canvas {
+                height: 45vh;
+                height: 45dvh;
+                max-height: 400px;
+            }
+            .blow-btn {
+                padding: 0.7rem 1.6rem;
+                font-size: 0.9rem;
+            }
+            .hero-content h1 {
+                font-size: clamp(1.6rem, 6vw, 2.4rem);
+            }
+            .hero-content .name {
+                font-size: clamp(2.4rem, 8vw, 4rem);
+            }
+        }
+
+        @media (min-width: 768px) {
+            #candle-canvas {
+                height: 60vh;
+                height: 60dvh;
+                max-height: 600px;
+            }
+            .quote-container {
+                padding: 3rem 3.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+            .hero-content .name {
+                font-size: 5.5rem;
+            }
+            #candle-canvas {
+                max-width: 550px;
+                height: 65vh;
+                height: 65dvh;
+                max-height: 650px;
+            }
+        }
+
+        /* ── Celebration overlay ── */
+        .celebration-toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 100;
+            background: rgba(13, 27, 42, 0.95);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 2rem 2.5rem;
+            text-align: center;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .celebration-toast.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .celebration-toast h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            margin: 0;
+        }
+        .celebration-toast p {
+            color: var(--light-blue);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ HERO SECTION ═══════════ -->
+    <section id="hero-section" class="section">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <span class="korean-ornament"></span>
+            <h1 class="fade-up visible">Happy 21st Birthday</h1>
+            <p class="name fade-up fade-up-delay visible">Helya</p>
+            <p class="subtitle fade-up fade-up-delay-2 visible">✨ My Soulmate · My Everything ✨</p>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ QUOTE SECTION ═══════════ -->
+    <section id="quote-section" class="section">
+        <div class="quote-container fade-up">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">
+                Happy birthday to my soulmate, my partner in crime, and my absolute everything.
+                Every single day spent with you feels like a beautiful gift, and I cannot wait to see
+                what this next year of your life brings. Through every adventure, every challenge,
+                and every beautiful milestone, I will be right here.
+            </p>
+            <p class="quote-author">— <span>Darya</span></p>
+        </div>
+    </section>
+
+    <!-- ═══════════ CANDLE SECTION ═══════════ -->
+    <section id="candle-section" class="section">
+        <canvas id="candle-canvas"></canvas>
+        <p class="candle-instruction">🕯️ Tap each flame to blow it out 🕯️</p>
+        <button class="blow-btn" id="blow-all-btn" aria-label="Blow out all candles">
+            💨 Blow All Candles
+        </button>
+        <p class="candles-count" id="candles-count-text">
+            <strong id="lit-count">21</strong> candles still glowing
+        </p>
+    </section>
+
+    <!-- ═══════════ FOOTER SECTION ═══════════ -->
+    <section id="footer-section" class="section">
+        <div class="footer-content fade-up">
+            <span class="footer-heart">💙</span>
+            <div class="footer-ornament"></div>
+            <p class="footer-text">Made with Love</p>
+            <p class="footer-name">by Darya</p>
+            <div class="footer-ornament"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ CELEBRATION TOAST ═══════════ -->
+    <div class="celebration-toast" id="celebration-toast">
+        <h3>🎉 Happy Birthday, Helya! 🎉</h3>
+        <p>All candles are out — make a wish!</p>
+    </div>
+
+    <!-- ═══════════ THREE.JS IMPORT MAP ═══════════ -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // ──────────────────────────────────────
+        // 1. HERO PARTICLE SYSTEM
+        // ──────────────────────────────────────
+        const heroCanvas = document.getElementById('hero-canvas');
+        const heroSection = document.getElementById('hero-section');
+
+        const heroRenderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: false });
+        heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        heroRenderer.setClearColor(0x000000, 0);
+
+        const heroScene = new THREE.Scene();
+        const heroCamera = new THREE.PerspectiveCamera(60, 1, 0.5, 100);
+        heroCamera.position.set(0, 2, 8);
+        heroCamera.lookAt(0, 0, 0);
+
+        // Create floating particles
+        const particleCount = 250;
+        const positions = new Float32Array(particleCount * 3);
+        const sizes = new Float32Array(particleCount);
+        const speeds = new Float32Array(particleCount);
+        const offsets = new Float32Array(particleCount);
+
+        const spreadX = 14;
+        const spreadY = 10;
+        const spreadZ = 6;
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * spreadX;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * spreadY;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * spreadZ;
+            sizes[i] = Math.random() * 3.5 + 1.2;
+            speeds[i] = Math.random() * 0.4 + 0.15;
+            offsets[i] = Math.random() * Math.PI * 2;
+        }
+
+        const particleGeometry = new THREE.BufferGeometry();
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+        // Create a circular glow sprite texture
+        const spriteCanvas = document.createElement('canvas');
+        spriteCanvas.width = 64;
+        spriteCanvas.height = 64;
+        const ctx = spriteCanvas.getContext('2d');
+        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        gradient.addColorStop(0, 'rgba(142, 202, 230, 1)');
+        gradient.addColorStop(0.2, 'rgba(77, 168, 218, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(30, 90, 150, 0.3)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 64, 64);
+        const spriteTexture = new THREE.CanvasTexture(spriteCanvas);
+
+        const particleMaterial = new THREE.PointsMaterial({
+            map: spriteTexture,
+            color: 0x8ecae6,
+            size: 0.35,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            transparent: true,
+            opacity: 0.75,
+        });
+
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        heroScene.add(particles);
+
+        // Add a few larger "sparkle" particles
+        const sparkleCount = 60;
+        const sparklePositions = new Float32Array(sparkleCount * 3);
+        const sparkleSizesArr = new Float32Array(sparkleCount);
+        const sparkleSpeeds = new Float32Array(sparkleCount);
+        const sparklePhases = new Float32Array(sparkleCount);
+
+        for (let i = 0; i < sparkleCount; i++) {
+            sparklePositions[i * 3] = (Math.random() - 0.5) * spreadX;
+            sparklePositions[i * 3 + 1] = (Math.random() - 0.5) * spreadY;
+            sparklePositions[i * 3 + 2] = (Math.random() - 0.5) * spreadZ;
+            sparkleSizesArr[i] = Math.random() * 6 + 4;
+            sparkleSpeeds[i] = Math.random() * 0.25 + 0.08;
+            sparklePhases[i] = Math.random() * Math.PI * 2;
+        }
+
+        const sparkleGeometry = new THREE.BufferGeometry();
+        sparkleGeometry.setAttribute('position', new THREE.BufferAttribute(sparklePositions, 3));
+        const sparkleMaterial = new THREE.PointsMaterial({
+            map: spriteTexture,
+            color: 0xffffff,
+            size: 0.18,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            transparent: true,
+            opacity: 0.9,
+        });
+        const sparkles = new THREE.Points(sparkleGeometry, sparkleMaterial);
+        heroScene.add(sparkles);
+
+        function resizeHeroRenderer() {
+            const rect = heroSection.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+            if (w === 0 || h === 0) return;
+            heroRenderer.setSize(w, h, false);
+            heroCamera.aspect = w / Math.max(h, 1);
+            heroCamera.updateProjectionMatrix();
+        }
+
+        let heroAnimId;
+        function animateHero(time) {
+            heroAnimId = requestAnimationFrame(animateHero);
+            const t = time * 0.001;
+
+            // Update particle positions (float upward slowly)
+            const posArr = particles.geometry.attributes.position.array;
+            for (let i = 0; i < particleCount; i++) {
+                posArr[i * 3 + 1] += speeds[i] * 0.012;
+                // Add subtle horizontal sway
+                posArr[i * 3] += Math.sin(t * 0.7 + offsets[i]) * 0.004;
+                if (posArr[i * 3 + 1] > spreadY * 0.5) {
+                    posArr[i * 3 + 1] = -spreadY * 0.5;
+                    posArr[i * 3] = (Math.random() - 0.5) * spreadX;
+                    posArr[i * 3 + 2] = (Math.random() - 0.5) * spreadZ;
+                }
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
+
+            // Update sparkles (twinkling)
+            const spArr = sparkles.geometry.attributes.position.array;
+            for (let i = 0; i < sparkleCount; i++) {
+                spArr[i * 3 + 1] += sparkleSpeeds[i] * 0.008;
+                if (spArr[i * 3 + 1] > spreadY * 0.5) {
+                    spArr[i * 3 + 1] = -spreadY * 0.5;
+                }
+            }
+            sparkles.geometry.attributes.position.needsUpdate = true;
+            sparkleMaterial.opacity = 0.5 + Math.sin(t * 1.5) * 0.4;
+
+            // Subtle rotation
+            particles.rotation.y += 0.0008;
+            sparkles.rotation.y += 0.0005;
+
+            heroRenderer.render(heroScene, heroCamera);
+        }
+
+        resizeHeroRenderer();
+        animateHero(performance.now());
+
+        // ──────────────────────────────────────
+        // 2. CANDLE SCENE (3D Cake + Candles)
+        // ──────────────────────────────────────
+        const candleCanvas = document.getElementById('candle-canvas');
+        const candleSection = document.getElementById('candle-section');
+
+        const candleRenderer = new THREE.WebGLRenderer({ canvas: candleCanvas, alpha: true, antialias: true });
+        candleRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        candleRenderer.setClearColor(0x000000, 0);
+        candleRenderer.shadowMap.enabled = true;
+        candleRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        candleRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+        candleRenderer.toneMappingExposure = 1.2;
+
+        const candleScene = new THREE.Scene();
+        const candleCamera = new THREE.PerspectiveCamera(45, 1, 0.3, 30);
+        candleCamera.position.set(0, 2.8, 7.5);
+        candleCamera.lookAt(0, 0.5, 0);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x1a3050, 1.8);
+        candleScene.add(ambientLight);
+        const mainLight = new THREE.DirectionalLight(0xffffff, 1.5);
+        mainLight.position.set(3, 6, 4);
+        mainLight.castShadow = true;
+        mainLight.shadow.mapSize.width = 512;
+        mainLight.shadow.mapSize.height = 512;
+        mainLight.shadow.camera.near = 0.5;
+        mainLight.shadow.camera.far = 30;
+        mainLight.shadow.camera.left = -8;
+        mainLight.shadow.camera.right = 8;
+        mainLight.shadow.camera.top = 8;
+        mainLight.shadow.camera.bottom = -8;
+        mainLight.shadow.bias = -0.0001;
+        candleScene.add(mainLight);
+
+        const rimLight = new THREE.DirectionalLight(0x8ecae6, 0.8);
+        rimLight.position.set(-3, 1, -2);
+        candleScene.add(rimLight);
+
+        // Subtle point light for candle glow (will be adjusted)
+        const candleGlowLight = new THREE.PointLight(0xffb74d, 12, 5, 1.5);
+        candleGlowLight.position.set(0, 1.6, 0);
+        candleScene.add(candleGlowLight);
+
+        // ── Cake Group ──
+        const cakeGroup = new THREE.Group();
+        candleScene.add(cakeGroup);
+
+        // Plate
+        const plateGeom = new THREE.CylinderGeometry(1.5, 1.55, 0.15, 48);
+        const plateMat = new THREE.MeshStandardMaterial({ color: 0x1c1c24, roughness: 0.35, metalness: 0.6 });
+        const plate = new THREE.Mesh(plateGeom, plateMat);
+        plate.position.y = -0.55;
+        plate.castShadow = true;
+        plate.receiveShadow = true;
+        cakeGroup.add(plate);
+
+        // Plate rim
+        const plateRimGeom = new THREE.TorusGeometry(1.48, 0.08, 16, 48);
+        const plateRimMat = new THREE.MeshStandardMaterial({ color: 0x3a6080, roughness: 0.3, metalness: 0.7 });
+        const plateRim = new THREE.Mesh(plateRimGeom, plateRimMat);
+        plateRim.rotation.x = Math.PI / 2;
+        plateRim.position.y = -0.47;
+        plateRim.receiveShadow = true;
+        cakeGroup.add(plateRim);
+
+        // Bottom tier
+        const bottomTierGeom = new THREE.CylinderGeometry(1.15, 1.2, 0.55, 48);
+        const bottomTierMat = new THREE.MeshStandardMaterial({ color: 0x2a2035, roughness: 0.6, metalness: 0.05 });
+        const bottomTier = new THREE.Mesh(bottomTierGeom, bottomTierMat);
+        bottomTier.position.y = -0.2;
+        bottomTier.castShadow = true;
+        bottomTier.receiveShadow = true;
+        cakeGroup.add(bottomTier);
+
+        // Bottom tier frosting
+        const btFrostingGeom = new THREE.CylinderGeometry(1.22, 1.22, 0.1, 48);
+        const frostingMat = new THREE.MeshStandardMaterial({ color: 0x4a6fa5, roughness: 0.25, metalness: 0.1 });
+        const btFrosting = new THREE.Mesh(btFrostingGeom, frostingMat);
+        btFrosting.position.y = 0.1;
+        btFrosting.castShadow = true;
+        cakeGroup.add(btFrosting);
+
+        // Top tier
+        const topTierGeom = new THREE.CylinderGeometry(0.78, 0.82, 0.45, 48);
+        const topTierMat = new THREE.MeshStandardMaterial({ color: 0x352840, roughness: 0.55, metalness: 0.05 });
+        const topTier = new THREE.Mesh(topTierGeom, topTierMat);
+        topTier.position.y = 0.5;
+        topTier.castShadow = true;
+        topTier.receiveShadow = true;
+        cakeGroup.add(topTier);
+
+        // Top tier frosting
+        const ttFrostingGeom = new THREE.CylinderGeometry(0.84, 0.84, 0.08, 48);
+        const ttFrosting = new THREE.Mesh(ttFrostingGeom, frostingMat);
+        ttFrosting.position.y = 0.74;
+        ttFrosting.castShadow = true;
+        cakeGroup.add(ttFrosting);
+
+        // Decorative blue ribbon on bottom tier
+        const ribbonGeom = new THREE.TorusGeometry(1.19, 0.04, 8, 48);
+        const ribbonMat = new THREE.MeshStandardMaterial({ color: 0x6bb5e0, roughness: 0.2, metalness: 0.3, emissive: 0x1a3050,
+            emissiveIntensity: 0.3 });
+        const ribbon = new THREE.Mesh(ribbonGeom, ribbonMat);
+        ribbon.rotation.x = Math.PI / 2;
+        ribbon.position.y = -0.05;
+        cakeGroup.add(ribbon);
+
+        // ── Candles ──
+        const TOTAL_CANDLES = 21;
+        const candleGroup = new THREE.Group();
+        cakeGroup.add(candleGroup);
+        const candleDataArray = []; // { flameMesh, lit, worldPos }
+
+        const candleRadius = 0.6; // placement radius on top tier
+        const candleBaseY = 0.78; // top of top tier frosting
+
+        const candleBodyGeom = new THREE.CylinderGeometry(0.04, 0.045, 0.55, 20);
+        const candleBodyMat = new THREE.MeshStandardMaterial({ color: 0xf5f0e8, roughness: 0.5, metalness: 0.02 });
+
+        const flameGeom = new THREE.SphereGeometry(0.07, 20, 14);
+        // Slightly elongate the flame
+        flameGeom.scale(1, 1.35, 1);
+
+        for (let i = 0; i < TOTAL_CANDLES; i++) {
+            const angle = (i / TOTAL_CANDLES) * Math.PI * 2;
+            const cx = Math.cos(angle) * candleRadius;
+            const cz = Math.sin(angle) * candleRadius;
+
+            // Candle body
+            const body = new THREE.Mesh(candleBodyGeom, candleBodyMat);
+            body.position.set(cx, candleBaseY + 0.25, cz);
+            body.castShadow = true;
+            body.receiveShadow = true;
+            candleGroup.add(body);
+
+            // Flame
+            const flameMat = new THREE.MeshStandardMaterial({
+                color: 0xff9d3c,
+                emissive: 0xff6d00,
+                emissiveIntensity: 2.5,
+                roughness: 0.2,
+                metalness: 0,
+            });
+            const flame = new THREE.Mesh(flameGeom, flameMat);
+            flame.position.set(cx, candleBaseY + 0.55, cz);
+            flame.name = `flame-${i}`;
+            flame.userData = { candleIndex: i, lit: true };
+            candleGroup.add(flame);
+
+            // Tiny halo sprite for each flame
+            const haloSpriteMat = new THREE.SpriteMaterial({
+                map: spriteTexture,
+                color: 0xffb74d,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                transparent: true,
+                opacity: 0.55,
+            });
+            const haloSprite = new THREE.Sprite(haloSpriteMat);
+            haloSprite.scale.set(0.35, 0.35, 1);
+            haloSprite.position.copy(flame.position);
+            haloSprite.name = `halo-${i}`;
+            haloSprite.userData = { parentIndex: i };
+            candleGroup.add(haloSprite);
+
+            candleDataArray.push({
+                flameMesh: flame,
+                haloMesh: haloSprite,
+                lit: true,
+                basePosition: flame.position.clone(),
+            });
+        }
+
+        // ── Celebration particle system ──
+        const celebrationParticlesGroup = new THREE.Group();
+        celebrationParticlesGroup.visible = false;
+        candleScene.add(celebrationParticlesGroup);
+        const celebrationParticlesData = [];
+
+        function createCelebrationParticles() {
+            const count = 200;
+            const geom = new THREE.BufferGeometry();
+            const pos = new Float32Array(count * 3);
+            const col = new Float32Array(count * 3);
+            const vel = [];
+            for (let i = 0; i < count; i++) {
+                pos[i * 3] = (Math.random() - 0.5) * 2;
+                pos[i * 3 + 1] = candleBaseY + 0.5 + Math.random() * 0.5;
+                pos[i * 3 + 2] = (Math.random() - 0.5) * 2;
+                const colorChoice = Math.random();
+                if (colorChoice < 0.5) {
+                    col[i * 3] = 1;
+                    col[i * 3 + 1] = 0.75;
+                    col[i * 3 + 2] = 0.3;
+                } else if (colorChoice < 0.8) {
+                    col[i * 3] = 0.4;
+                    col[i * 3 + 1] = 0.7;
+                    col[i * 3 + 2] = 1;
+                } else {
+                    col[i * 3] = 0.95;
+                    col[i * 3 + 1] = 0.9;
+                    col[i * 3 + 2] = 0.5;
+                }
+                vel.push({
+                    x: (Math.random() - 0.5) * 0.08,
+                    y: Math.random() * 0.12 + 0.06,
+                    z: (Math.random() - 0.5) * 0.08,
+                    life: 1,
+                    decay: Math.random() * 0.015 + 0.008,
+                });
+            }
+            geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            geom.setAttribute('color', new THREE.BufferAttribute(col, 3));
+            const mat = new THREE.PointsMaterial({
+                size: 0.06,
+                vertexColors: true,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                transparent: true,
+                opacity: 1,
+                map: spriteTexture,
+            });
+            const points = new THREE.Points(geom, mat);
+            celebrationParticlesGroup.add(points);
+            return { points, velocities: vel, positionArray: pos, colorArray: col };
+        }
+
+        let activeCelebration = null;
+
+        function triggerCelebration() {
+            if (activeCelebration) {
+                celebrationParticlesGroup.clear();
+                celebrationParticlesData.length = 0;
+            }
+            celebrationParticlesGroup.visible = true;
+            const data = createCelebrationParticles();
+            celebrationParticlesData.push(data);
+            activeCelebration = data;
+
+            // Show toast
+            const toast = document.getElementById('celebration-toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+
+            // Boost the glow
+            candleGlowLight.intensity = 25;
+            candleGlowLight.color.set(0xffcc00);
+        }
+
+        function updateCelebrationParticles() {
+            if (!activeCelebration) return;
+            const data = activeCelebration;
+            const pos = data.positionArray;
+            const vel = data.velocities;
+            let allDead = true;
+            for (let i = 0; i < vel.length; i++) {
+                if (vel[i].life <= 0) continue;
+                allDead = false;
+                vel[i].life -= vel[i].decay;
+                pos[i * 3] += vel[i].x;
+                pos[i * 3 + 1] += vel[i].y;
+                pos[i * 3 + 2] += vel[i].z;
+                vel[i].y += 0.0004; // slight gravity
+            }
+            data.points.geometry.attributes.position.needsUpdate = true;
+            data.points.material.opacity = Math.max(0, data.points.material.opacity - 0.003);
+            if (allDead || data.points.material.opacity <= 0) {
+                celebrationParticlesGroup.clear();
+                celebrationParticlesData.length = 0;
+                activeCelebration = null;
+                celebrationParticlesGroup.visible = false;
+                candleGlowLight.intensity = 12;
+                candleGlowLight.color.set(0xffb74d);
+            }
+        }
+
+        // ── Smoke particles for individual blown-out candles ──
+        const smokeGroup = new THREE.Group();
+        candleScene.add(smokeGroup);
+        const smokeParticles = [];
+
+        function emitSmoke(position) {
+            const count = 15;
+            const geom = new THREE.BufferGeometry();
+            const pos = new Float32Array(count * 3);
+            const vel = [];
+            for (let i = 0; i < count; i++) {
+                pos[i * 3] = position.x + (Math.random() - 0.5) * 0.15;
+                pos[i * 3 + 1] = position.y;
+                pos[i * 3 + 2] = position.z + (Math.random() - 0.5) * 0.15;
+                vel.push({
+                    x: (Math.random() - 0.5) * 0.03,
+                    y: Math.random() * 0.04 + 0.02,
+                    z: (Math.random() - 0.5) * 0.03,
+                    life: 1,
+                    decay: Math.random() * 0.03 + 0.02,
+                });
+            }
+            geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const mat = new THREE.PointsMaterial({
+                size: 0.04,
+                color: 0x8899aa,
+                blending: THREE.NormalBlending,
+                depthWrite: false,
+                transparent: true,
+                opacity: 0.7,
+            });
+            const points = new THREE.Points(geom, mat);
+            smokeGroup.add(points);
+            smokeParticles.push({ points, velocities: vel, positionArray: pos });
+            // Limit smoke particles
+            if (smokeParticles.length > 30) {
+                const old = smokeParticles.shift();
+                smokeGroup.remove(old.points);
+                old.points.geometry.dispose();
+                old.points.material.dispose();
+            }
+        }
+
+        function updateSmokeParticles() {
+            for (let s = smokeParticles.length - 1; s >= 0; s--) {
+                const data = smokeParticles[s];
+                const pos = data.positionArray;
+                const vel = data.velocities;
+                let allDead = true;
+                for (let i = 0; i < vel.length; i++) {
+                    if (vel[i].life <= 0) continue;
+                    allDead = false;
+                    vel[i].life -= vel[i].decay;
+                    pos[i * 3] += vel[i].x;
+                    pos[i * 3 + 1] += vel[i].y;
+                    pos[i * 3 + 2] += vel[i].z;
+                }
+                data.points.geometry.attributes.position.needsUpdate = true;
+                data.points.material.opacity = Math.max(0, data.points.material.opacity - 0.012);
+                if (allDead || data.points.material.opacity <= 0) {
+                    smokeGroup.remove(data.points);
+                    data.points.geometry.dispose();
+                    data.points.material.dispose();
+                    smokeParticles.splice(s, 1);
+                }
+            }
+        }
+
+        // ── Blow out a single candle ──
+        function blowOutCandle(index) {
+            const data = candleDataArray[index];
+            if (!data || !data.lit) return;
+            data.lit = false;
+            // Animate flame shrinking
+            const flame = data.flameMesh;
+            const halo = data.haloMesh;
+            const shrinkDuration = 400;
+            const startTime = performance.now();
+            const startScale = flame.scale.clone();
+            const startHaloScale = halo.scale.clone();
+
+            function animateShrink(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / shrinkDuration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                flame.scale.setScalar(Math.max(0.001, startScale.x * (1 - ease)));
+                halo.scale.setScalar(Math.max(0.001, startHaloScale.x * (1 - ease)));
+                flame.material.emissiveIntensity = 2.5 * (1 - ease);
+                halo.material.opacity = 0.55 * (1 - ease);
+                if (progress < 1) {
+                    requestAnimationFrame(animateShrink);
+                } else {
+                    flame.visible = false;
+                    halo.visible = false;
+                    flame.scale.setScalar(0.001);
+                    halo.scale.setScalar(0.001);
+                }
+            }
+            requestAnimationFrame(animateShrink);
+
+            // Emit smoke
+            const worldPos = data.basePosition.clone();
+            cakeGroup.localToWorld(worldPos);
+            emitSmoke(worldPos);
+
+            // Update count
+            updateLitCount();
+
+            // Check if all blown out
+            const allBlown = candleDataArray.every(d => !d.lit);
+            if (allBlown) {
+                setTimeout(triggerCelebration, 500);
+            }
+        }
+
+        function blowOutAllCandles() {
+            const litIndices = [];
+            candleDataArray.forEach((d, i) => {
+                if (d.lit) litIndices.push(i);
+            });
+            if (litIndices.length === 0) return;
+            // Blow them out sequentially with slight delay
+            litIndices.forEach((idx, i) => {
+                setTimeout(() => blowOutCandle(idx), i * 60);
+            });
+        }
+
+        function updateLitCount() {
+            const litCount = candleDataArray.filter(d => d.lit).length;
+            const countEl = document.getElementById('lit-count');
+            if (countEl) countEl.textContent = litCount;
+            // Adjust glow light
+            candleGlowLight.intensity = 3 + litCount * 0.45;
+        }
+
+        // ── Raycasting for tap detection ──
+        const raycaster = new THREE.Raycaster();
+        raycaster.params.Points.threshold = 0.25;
+        raycaster.params.Line = { threshold: 0.2 };
+
+        function getCanvasRelativePosition(clientX, clientY) {
+            const rect = candleCanvas.getBoundingClientRect();
+            return {
+                x: ((clientX - rect.left) / rect.width) * 2 - 1,
+                y: -((clientY - rect.top) / rect.height) * 2 + 1,
+            };
+        }
+
+        function handleCandleTap(clientX, clientY) {
+            const { x, y } = getCanvasRelativePosition(clientX, clientY);
+            raycaster.setFromCamera(new THREE.Vector2(x, y), candleCamera);
+
+            // Collect all visible flame meshes
+            const flameTargets = candleDataArray
+                .filter(d => d.lit)
+                .map(d => d.flameMesh);
+
+            const intersects = raycaster.intersectObjects(flameTargets, false);
+            if (intersects.length > 0) {
+                const hit = intersects[0].object;
+                if (hit.userData && hit.userData.candleIndex !== undefined) {
+                    blowOutCandle(hit.userData.candleIndex);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Touch events
+        candleCanvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (e.touches.length === 1) {
+                handleCandleTap(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        // Mouse events (for desktop)
+        candleCanvas.addEventListener('click', (e) => {
+            handleCandleTap(e.clientX, e.clientY);
+        });
+
+        // Blow all button
+        document.getElementById('blow-all-btn').addEventListener('click', () => {
+            blowOutAllCandles();
+        });
+        document.getElementById('blow-all-btn').addEventListener('touchend', (e) => {
+            e.preventDefault();
+            blowOutAllCandles();
+        });
+
+        // ── Resize candle renderer ──
+        function resizeCandleRenderer() {
+            const rect = candleCanvas.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
+            if (w === 0 || h === 0) return;
+            candleRenderer.setSize(w, h, false);
+            candleCamera.aspect = w / Math.max(h, 1);
+            candleCamera.updateProjectionMatrix();
+        }
+
+        // ── Candle animation loop ──
+        let candleAnimId;
+        function animateCandle(time) {
+            candleAnimId = requestAnimationFrame(animateCandle);
+            const t = time * 0.001;
+
+            // Subtle cake rotation
+            cakeGroup.rotation.y += 0.0025;
+            // Subtle bobbing
+            cakeGroup.position.y = Math.sin(t * 0.6) * 0.08;
+
+            // Flicker lit flames
+            candleDataArray.forEach(d => {
+                if (d.lit && d.flameMesh.visible) {
+                    const flicker = 1 + Math.sin(t * 18 + d.basePosition.x * 10) * 0.06 +
+                        Math.cos(t * 23 + d.basePosition.z * 10) * 0.05 +
+                        Math.sin(t * 31) * 0.04;
+                    d.flameMesh.scale.setScalar(Math.max(0.7, flicker));
+                    d.flameMesh.material.emissiveIntensity = 2.5 * flicker;
+                    if (d.haloMesh.visible) {
+                        d.haloMesh.scale.setScalar(0.35 * flicker);
+                        d.haloMesh.material.opacity = 0.45 + Math.sin(t * 15 + d.basePosition.x) * 0.15;
+                    }
+                }
+            });
+
+            updateSmokeParticles();
+            updateCelebrationParticles();
+
+            candleRenderer.render(candleScene, candleCamera);
+        }
+
+        resizeCandleRenderer();
+        animateCandle(performance.now());
+
+        // ──────────────────────────────────────
+        // 3. INTERSECTION OBSERVER (Scroll Animations)
+        // ──────────────────────────────────────
+        const fadeUpElements = document.querySelectorAll('.fade-up:not(.visible)');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.2,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeUpElements.forEach(el => observer.observe(el));
+
+        // Also observe quote container and footer content
+        const quoteContainer = document.querySelector('.quote-container');
+        const footerContent = document.querySelector('.footer-content');
+        if (quoteContainer) observer.observe(quoteContainer);
+        if (footerContent) observer.observe(footerContent);
+
+        // ──────────────────────────────────────
+        // 4. GLOBAL RESIZE HANDLER
+        // ──────────────────────────────────────
+        function handleResize() {
+            resizeHeroRenderer();
+            resizeCandleRenderer();
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(handleResize, 300);
+        });
+
+        // ──────────────────────────────────────
+        // 5. VISIBILITY-BASED RENDER PAUSING
+        // ──────────────────────────────────────
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hero-section') {
+                    // Hero is always somewhat visible at top; keep rendering
+                }
+                if (entry.target.id === 'candle-section') {
+                    if (!entry.isIntersecting) {
+                        // Could pause candle render but keep it alive for smooth re-entry
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        sectionObserver.observe(heroSection);
+        sectionObserver.observe(candleSection);
+
+        // ──────────────────────────────────────
+        // 6. INITIAL SETUP
+        // ──────────────────────────────────────
+        updateLitCount();
+        handleResize();
+
+        // Make hero content visible immediately
+        document.querySelectorAll('#hero-section .fade-up').forEach(el => el.classList.add('visible'));
+
+        console.log('🎂 Happy 21st Birthday, Helya! 💙');
+        console.log('✨ Made with Love by Darya ✨');
+        console.log('🕯️ Tap the candle flames to blow them out!');
+    </script>
+</body>
+</html>
